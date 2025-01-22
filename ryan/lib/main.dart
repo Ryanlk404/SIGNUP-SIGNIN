@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ryan/pages/signup.dart';
 import 'package:ryan/pages/signin.dart';
+// ignore: unused_import
 import 'package:ryan/pages/actionsheet50.dart';
 
 void main() {
@@ -23,7 +24,6 @@ class MyApp extends StatelessWidget {
       routes: {
         '/signup': (context) => const Signup(),
         '/signin': (context) => const SignIn(),
-        '/actionsheet': (context) => const Actionsheet50(),
       },
     );
   }
