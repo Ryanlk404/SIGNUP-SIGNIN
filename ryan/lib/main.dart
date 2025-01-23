@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ryan/pages/signup.dart';
-import 'package:ryan/pages/signin.dart';
-// ignore: unused_import
-import 'package:ryan/pages/actionsheet50.dart';
+import 'package:ryan/pages/onboarding.dart'; // Update the path to your onboarding file
 
 void main() {
   runApp(const MyApp());
@@ -17,14 +14,9 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+        primarySwatch: Colors.blue,
       ),
-      initialRoute: '/signup',
-      routes: {
-        '/signup': (context) => const Signup(),
-        '/signin': (context) => const SignIn(),
-      },
+      home: const Onboarding(),
     );
   }
 }
