@@ -73,7 +73,7 @@ class _OnboardingState extends State<Onboarding> {
                 ),
                 child: const Center(
                   child: Text(
-                    "LOG IN",
+                    "SIGN IN",
                     style: TextStyle(
                       fontSize: 25,
                       fontWeight: FontWeight.w500,

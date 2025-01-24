@@ -23,7 +23,7 @@ class _SignInState extends State<SignIn> {
           CupertinoActionSheetAction(
             child: const Text('Sign Up'),
             onPressed: () {
-              Navigator.pop(context); // Close the ActionSheet
+              Navigator.pop(context); // Here you can close the ActionSheet
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => const Signup()),
@@ -36,7 +36,7 @@ class _SignInState extends State<SignIn> {
               style: TextStyle(color: Colors.red),
             ),
             onPressed: () {
-              Navigator.pop(context); // Close the ActionSheet
+              Navigator.pop(context); // Here you can Close the ActionSheet
             },
           ),
         ],
@@ -48,11 +48,12 @@ class _SignInState extends State<SignIn> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Sign In"),
+        backgroundColor: const Color.fromARGB(255, 255, 255, 255),
+        title: const Text("SIGN IN"),
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back_ios_new),
           onPressed: () {
-            Navigator.pop(context); // Go back to the previous page
+            Navigator.pop(context); // This directs you to the previous page
           },
         ),
       ),
@@ -69,7 +70,7 @@ class _SignInState extends State<SignIn> {
         ),
         child: ElevatedButton(
           onPressed: () {
-            Navigator.pop(context); // Go back to the onboarding page
+            Navigator.pop(context); // Go back to the onboarding/main page
           },
           child: const Text("Back to Onboarding"),
         ),
@@ -78,7 +79,7 @@ class _SignInState extends State<SignIn> {
         padding: const EdgeInsets.only(left: 30, right: 30),
         width: MediaQuery.of(context).size.width,
         decoration: const BoxDecoration(
-          color: Colors.white,
+          color: Color.fromARGB(255, 255, 255, 255),
           borderRadius: BorderRadius.only(
             topLeft: Radius.circular(30),
             topRight: Radius.circular(30),
@@ -102,9 +103,7 @@ class _SignInState extends State<SignIn> {
             const SizedBox(height: 10),
             Container(
               padding: const EdgeInsets.only(top: 50, left: 30, right: 30),
-              decoration: const BoxDecoration(
-                color: Colors.white,
-              ),
+              decoration: const BoxDecoration(color: Colors.white),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -141,7 +140,7 @@ class _SignInState extends State<SignIn> {
                   ),
                   const SizedBox(height: 30),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: const [
                       Text(
                         "Forgot Password?",
@@ -182,7 +181,7 @@ class _SignInState extends State<SignIn> {
                   ),
                   const SizedBox(height: 30),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       const Text(
                         "Don't have an account?",

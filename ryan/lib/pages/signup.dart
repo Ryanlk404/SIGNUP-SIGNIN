@@ -50,7 +50,7 @@ class _SignupState extends State<Signup> {
       appBar: AppBar(
         title: const Text("Sign Up"),
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back_ios_new),
           onPressed: () {
             Navigator.pop(context); // Go back to the previous page
           },
@@ -169,7 +169,7 @@ class _SignupState extends State<Signup> {
                     ),
                     const SizedBox(height: 20),
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.end,
                       children: [
                         const Text(
                           "Already have an account?",
