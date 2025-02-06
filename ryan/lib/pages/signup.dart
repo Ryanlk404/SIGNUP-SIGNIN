@@ -48,12 +48,24 @@ class _SignupState extends State<Signup> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Sign Up"),
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios_new),
-          onPressed: () {
-            Navigator.pop(context); // Go back to the previous page
+        backgroundColor: const Color.fromARGB(255, 255, 255, 255),
+        leading: GestureDetector(
+          onTap: () {
+            Navigator.pop(context);
           },
+          child: Row(
+            children: const [
+              Icon(Icons.arrow_back_ios_new, color: Colors.blue),
+              SizedBox(width: 4), // Adds space between the icon and text
+              Text(
+                'Back',
+                style: TextStyle(color: Colors.blue),
+              ),
+            ],
+          ),
+        ),
+        iconTheme: const IconThemeData(
+          color: Colors.blue, // Set the color to blue
         ),
       ),
       body: Container(

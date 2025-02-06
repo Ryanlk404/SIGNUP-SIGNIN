@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:ryan/pages/signup.dart';
+import 'package:ryan/pages/onboarding.dart'; // Import Onboarding page
 
 class SignIn extends StatefulWidget {
   const SignIn({super.key});
@@ -23,7 +24,7 @@ class _SignInState extends State<SignIn> {
           CupertinoActionSheetAction(
             child: const Text('Sign Up'),
             onPressed: () {
-              Navigator.pop(context); // Here you can close the ActionSheet
+              Navigator.pop(context);
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => const Signup()),
@@ -36,7 +37,12 @@ class _SignInState extends State<SignIn> {
               style: TextStyle(color: Colors.red),
             ),
             onPressed: () {
-              Navigator.pop(context); // Here you can Close the ActionSheet
+              Navigator.pop(context); // Close the ActionSheet first
+              Navigator.pushAndRemoveUntil(
+                context,
+                MaterialPageRoute(builder: (context) => const Onboarding()),
+                (Route<dynamic> route) => false, // Clears the navigation stack
+              );
             },
           ),
         ],
@@ -48,17 +54,36 @@ class _SignInState extends State<SignIn> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color.fromARGB(255, 255, 255, 255),
-        title: const Text("SIGN IN"),
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios_new),
-          onPressed: () {
-            Navigator.pop(context); // This directs you to the previous page
+        backgroundColor: Colors.white,
+        leading: Builder(
+          builder: (context) {
+            return TextButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              style: TextButton.styleFrom(
+                padding: EdgeInsets.zero, // No extra padding
+                minimumSize: Size(70, 50), // Ensures full area is tappable
+                tapTargetSize:
+                    MaterialTapTargetSize.shrinkWrap, // Removes extra space
+              ),
+              child: Row(
+                mainAxisSize: MainAxisSize.min, // Take only required space
+                children: const [
+                  Icon(Icons.arrow_back_ios_new, color: Colors.blue, size: 20),
+                  SizedBox(width: 2),
+                  Text(
+                    'back',
+                    style: TextStyle(color: Colors.blue, fontSize: 16),
+                  ),
+                ],
+              ),
+            );
           },
         ),
       ),
       body: Container(
-        padding: const EdgeInsets.only(top: 50),
+        padding: const EdgeInsets.only(top: 75),
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
         decoration: const BoxDecoration(
@@ -70,7 +95,11 @@ class _SignInState extends State<SignIn> {
         ),
         child: ElevatedButton(
           onPressed: () {
-            Navigator.pop(context); // Go back to the onboarding/main page
+            Navigator.pushAndRemoveUntil(
+              context,
+              MaterialPageRoute(builder: (context) => const Onboarding()),
+              (Route<dynamic> route) => false,
+            );
           },
           child: const Text("Back to Onboarding"),
         ),
@@ -102,7 +131,7 @@ class _SignInState extends State<SignIn> {
             ),
             const SizedBox(height: 10),
             Container(
-              padding: const EdgeInsets.only(top: 50, left: 30, right: 30),
+              padding: const EdgeInsets.only(top: 60, left: 30, right: 30),
               decoration: const BoxDecoration(color: Colors.white),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -121,7 +150,7 @@ class _SignInState extends State<SignIn> {
                       prefixIcon: Icon(Icons.email_outlined),
                     ),
                   ),
-                  const SizedBox(height: 20),
+                  const SizedBox(height: 30),
                   const Text(
                     "Password",
                     style: TextStyle(
@@ -130,7 +159,7 @@ class _SignInState extends State<SignIn> {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  const SizedBox(height: 10),
+                  const SizedBox(height: 15),
                   const TextField(
                     obscureText: true,
                     decoration: InputDecoration(
@@ -139,18 +168,13 @@ class _SignInState extends State<SignIn> {
                     ),
                   ),
                   const SizedBox(height: 30),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: const [
-                      Text(
-                        "Forgot Password?",
-                        style: TextStyle(
-                          color: Color.fromARGB(255, 2, 51, 136),
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ],
+                  const Text(
+                    "Forgot Password?",
+                    style: TextStyle(
+                      color: Color.fromARGB(255, 2, 51, 136),
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                   const SizedBox(height: 30),
                   Container(
@@ -179,7 +203,7 @@ class _SignInState extends State<SignIn> {
                       ),
                     ),
                   ),
-                  const SizedBox(height: 30),
+                  const SizedBox(height: 50),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
