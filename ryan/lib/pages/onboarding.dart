@@ -164,6 +164,20 @@ class _OnboardingState extends State<Onboarding> {
                     fit: BoxFit.cover,
                   ),
                 ),
+                const SizedBox(width: 20),
+                Container(
+                  padding: const EdgeInsets.all(8),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(60),
+                  ),
+                  child: Image.asset(
+                    "images/xlogo.png",
+                    height: 40,
+                    width: 40,
+                    fit: BoxFit.cover,
+                  ),
+                ),
               ],
             ),
           ],

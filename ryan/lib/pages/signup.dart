@@ -48,24 +48,19 @@ class _SignupState extends State<Signup> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color.fromARGB(255, 255, 255, 255),
-        leading: GestureDetector(
-          onTap: () {
-            Navigator.pop(context);
-          },
-          child: Row(
+        backgroundColor: Colors.white,
+        titleSpacing: 0, // Ensures alignment with edge
+        leading: IconButton(
+          icon: Row(
+            mainAxisSize: MainAxisSize.min, // Prevents overflow
             children: const [
-              Icon(Icons.arrow_back_ios_new, color: Colors.blue),
-              SizedBox(width: 4), // Adds space between the icon and text
-              Text(
-                'Back',
-                style: TextStyle(color: Colors.blue),
-              ),
+              Icon(Icons.arrow_back_ios_new, color: Colors.blue, size: 20),
+              SizedBox(width: 4),
             ],
           ),
-        ),
-        iconTheme: const IconThemeData(
-          color: Colors.blue, // Set the color to blue
+          onPressed: () {
+            Navigator.pop(context);
+          },
         ),
       ),
       body: Container(
@@ -198,7 +193,6 @@ class _SignupState extends State<Signup> {
                             style: TextStyle(
                               color: Color.fromARGB(255, 0, 84, 230),
                               fontSize: 16,
-                              fontStyle: FontStyle.italic,
                               decoration: TextDecoration.underline,
                               fontWeight: FontWeight.bold,
                             ),
